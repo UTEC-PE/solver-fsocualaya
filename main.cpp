@@ -2,6 +2,8 @@
 
 using namespace std;
 
+
+
 void menu() {
       system("cls");
       cout<<"==========================================================="<<endl;
@@ -12,6 +14,7 @@ void menu() {
       //char* str="7/4*((a+-+--b)*a)+3";
       //char* str="2+(3)";
       char* str="7/4*((a+b)^4*a)+3";
+      cout<<str[1];
 }
 
 int main(int argc, char const *argv[]) {
