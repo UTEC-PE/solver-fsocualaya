@@ -1,13 +1,22 @@
-
-template <typename T>
+#include <cmath>
+using namespace std;
 
 struct Node
 {
-	T data;
+	char* data;
 	struct Node* childLeft;
 	struct Node* childRight;
 
-	Node(T data) : data(data){
-		childLeft = childRight = nullptr;
+	float operate(){
+	    if((this->data)=="+")
+	        return static_cast<float>(atof(this->childLeft->data) + atof(this->childRight->data));
+        if((this->data)=="-")
+            return static_cast<float>(atof(this->childLeft->data) - atof(this->childRight->data));
+        if((this->data)=="*")
+            return static_cast<float>(atof(this->childLeft->data) * atof(this->childRight->data));
+        if((this->data)=="/")
+            return static_cast<float>(atof(this->childLeft->data) / atof(this->childRight->data));
+        if((this->data)=="^")
+            return static_cast<float>(pow(atof(this->childLeft->data), atof(this->childRight->data)));
 	}
 };
