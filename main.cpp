@@ -10,7 +10,7 @@ void menu() {
       //char* str="7/4*((a+b)*a)+3";
       //char* str="7/4*((a+-+--b)*a)+3";
       //char* str="2+(3)";
-    char* str="(3*4*25)+5^2";
+    char* str="1+16";
 
     cout<<str<<"\n";
     BTree t(str);
@@ -24,8 +24,9 @@ void menu() {
     // t.root->childLeft->childLeft->childRight->insertRight("4");
     // t.root->childLeft->childRight->insertLeft("2");
     // t.root->childLeft->childRight->insertRight("5");
-    cout << t.root->search('*');
-
+    t.construct();
+    cout<<t.operate()<<endl;
+    cout<<t.root->size();
 }
 
 int main(int argc, char const *argv[]) {

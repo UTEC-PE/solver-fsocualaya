@@ -1,4 +1,5 @@
 #include <cmath>
+#include <cstring>
 using namespace std;
 
 struct BNode
@@ -6,6 +7,15 @@ struct BNode
 	char* data;
 	struct BNode* childLeft;
 	struct BNode* childRight;
+
+    int size(){
+        int size = 0, pos = 0;
+        while((this->data[pos])){
+            size++;
+            pos++;
+        }
+        return size;
+    };
 
 	float operate(){
 	    if(this->data) {
@@ -57,12 +67,23 @@ struct BNode
 
 	void construct(){
 //	    removeParenth();
-        if(this->search('+')!=-1)
-            if(this->search('-')==-1)
-                if(this->search('*')==-1)
-                    if(this->search('/')==-1)
-                        if(this->search('^')==-1)
+        if(this->search('+')!=-1) {
+            int pos = this->search('+');
+            char left[pos];
+            char right[this->size() - (pos + 1)];
 
+            for (int i = 0; i < pos; i++)
+                left[i] = this->data[i];
+            for (int i = 0; i < this->size() - (pos+1); i++)
+                right[i] = data[pos+i+1];
+
+            this->insertLeft(left);
+            this->insertRight(right);
+            this->data = "+";
+        }
+        else{
+
+        }
     };
 
 };
