@@ -17,7 +17,7 @@ public:
 	};
 
     void construct(){
-
+        this->root->construct();
     };
 
     float operate(){

@@ -6,17 +6,19 @@
 
 #IncludeRegexTransform: 
 
-/home/pyxel/Desktop/UTEC/4to_semestre/AED/semana4/solver-fsocualaya/main.cpp
+/home/damin/Escritorio/solver-fsocualaya/main.cpp
 iostream
 -
 tree.h
-/home/pyxel/Desktop/UTEC/4to_semestre/AED/semana4/solver-fsocualaya/tree.h
+/home/damin/Escritorio/solver-fsocualaya/tree.h
 
-/home/pyxel/Desktop/UTEC/4to_semestre/AED/semana4/solver-fsocualaya/node.h
+/home/damin/Escritorio/solver-fsocualaya/node.h
 cmath
 -
+cstring
+-
 
-/home/pyxel/Desktop/UTEC/4to_semestre/AED/semana4/solver-fsocualaya/tree.h
+/home/damin/Escritorio/solver-fsocualaya/tree.h
 node.h
-/home/pyxel/Desktop/UTEC/4to_semestre/AED/semana4/solver-fsocualaya/node.h
+/home/damin/Escritorio/solver-fsocualaya/node.h
 
