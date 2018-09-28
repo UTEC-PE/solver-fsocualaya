@@ -8,7 +8,7 @@ struct BNode
 	struct BNode* childRight;
 
 	float operate(){
-	    if(this->data != nullptr) {
+	    if(this->data) {
             if ((this->data) == "+")
                 return this->childLeft->operate() + this->childRight->operate();
             if ((this->data) == "-")
@@ -38,5 +38,31 @@ struct BNode
         node->data = str;
         node->childRight= node->childLeft = nullptr;
     }
+
+	int search(char sign){
+		int level = 0, pos = 0;
+        while((this->data)[pos]){
+            if((this->data)[pos] == '(')
+                level++;
+            if((this->data)[pos] == ')')
+                level--;
+            if(((this->data)[pos]==sign && level == 0))
+                return pos;
+            pos++;
+        }
+        return -1;
+//	    throw "Syntax error!";
+	}
+
+
+	void construct(){
+//	    removeParenth();
+        if(this->search('+')!=-1)
+            if(this->search('-')==-1)
+                if(this->search('*')==-1)
+                    if(this->search('/')==-1)
+                        if(this->search('^')==-1)
+
+    };
 
 };

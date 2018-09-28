@@ -1,7 +1,7 @@
 #include "node.h"
 
 class BTree{
-private:
+public:
 	BNode* root;
 
 public:
@@ -16,11 +16,7 @@ public:
 		node->childRight = node->childLeft = nullptr;
 	};
 
-    int search(char sign, BNode* node){
-        int level = 0;
-    };
-
-    void construct(BNode* node){
+    void construct(){
 
     };
 
