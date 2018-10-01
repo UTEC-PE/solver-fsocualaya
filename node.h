@@ -64,10 +64,84 @@ struct BNode
 //	    throw "Syntax error!";
 	}
 
-
 	void construct(){
 //	    removeParenth();
-        if(this->search('+')!=-1) {
+        if(this->search('+')==-1) {
+            if(this->search('-')==-1) {
+                if(this->search('*')==-1) {
+                    if(this->search('/')==-1) {
+                        if(this->search('^')==-1) {
+                            return;
+                        }
+                        else{
+                            int pos = this->search('^');
+                            char left[pos];
+                            char right[this->size() - (pos + 1)];
+
+                            for (int i = 0; i < pos; i++)
+                                left[i] = this->data[i];
+                            for (int i = 0; i < this->size() - (pos+1); i++)
+                                right[i] = data[pos+i+1];
+
+                            this->insertLeft(&left[0]);
+                            this->insertRight(&right[0]);
+                            this->data = "^";
+                            this->childLeft->construct();
+                            this->childRight->construct();
+                        }
+                    }
+                    else{
+                        int pos = this->search('/');
+                        char left[pos];
+                        char right[this->size() - (pos + 1)];
+
+                        for (int i = 0; i < pos; i++)
+                            left[i] = this->data[i];
+                        for (int i = 0; i < this->size() - (pos+1); i++)
+                            right[i] = data[pos+i+1];
+
+                        this->insertLeft(&left[0]);
+                        this->insertRight(&right[0]);
+                        this->data = "/";
+                        this->childLeft->construct();
+                        this->childRight->construct();
+                    }
+                }
+                else{
+                    int pos = this->search('*');
+                    char left[pos];
+                    char right[this->size() - (pos + 1)];
+
+                    for (int i = 0; i < pos; i++)
+                        left[i] = this->data[i];
+                    for (int i = 0; i < this->size() - (pos+1); i++)
+                        right[i] = data[pos+i+1];
+
+                    this->insertLeft(&left[0]);
+                    this->insertRight(&right[0]);
+                    this->data = "*";
+                    this->childLeft->construct();
+                    this->childRight->construct();
+                }
+            }
+            else{
+                int pos = this->search('-');
+                char left[pos];
+                char right[this->size() - (pos + 1)];
+
+                for (int i = 0; i < pos; i++)
+                    left[i] = this->data[i];
+                for (int i = 0; i < this->size() - (pos+1); i++)
+                    right[i] = data[pos+i+1];
+
+                this->insertLeft(&left[0]);
+                this->insertRight(&right[0]);
+                this->data = "-";
+                this->childLeft->construct();
+                this->childRight->construct();
+            }
+        }
+        else{
             int pos = this->search('+');
             char left[pos];
             char right[this->size() - (pos + 1)];
@@ -77,12 +151,11 @@ struct BNode
             for (int i = 0; i < this->size() - (pos+1); i++)
                 right[i] = data[pos+i+1];
 
-            this->insertLeft(left);
-            this->insertRight(right);
+            this->insertLeft(&left[0]);
+            this->insertRight(&right[0]);
             this->data = "+";
-        }
-        else{
-
+            this->childLeft->construct();
+            this->childRight->construct();
         }
     };
 
