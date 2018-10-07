@@ -1,6 +1,9 @@
 #include <iostream>
 #include "tree.h"
 
+// No funciona con variables
+// La manera de inserción no es correcta, debería armar el árbol desde un string (o char*)
+// No deberías poder acceder al root o childs del árbol
 void menu() {
 //      system("cls");
     cout<<"==========================================================="<<endl;
